@@ -1,3 +1,11 @@
+import React from 'react'
+import { ReactDOM } from 'react'
+import './style.css';
 
-// Spur begins here!
-// Limit tweaking to once a day
+export default function home() {
+  return (
+    <div>
+      
+    </div>
+  )
+}
