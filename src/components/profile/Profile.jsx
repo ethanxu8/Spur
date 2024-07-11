@@ -1,8 +1,13 @@
 import React from 'react'
+import Authentication from '../authentication/Authentication'
 
-const Profile = () => {
+function Profile() {
   return (
-    <div>Profile</div>
+    <div>
+      <Authentication/>
+
+    </div>
+
   )
 }
 
