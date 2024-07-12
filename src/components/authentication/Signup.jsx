@@ -9,7 +9,11 @@ function Signup({ setActive }) {
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
+  
   };
+  const [username, setUsername] = useState ("");
+  const [email, setEmail] = useState ("");
+  const [password, setPassword] = useState ("");
 
   return (
     <div className="auth-container">
@@ -23,8 +27,10 @@ function Signup({ setActive }) {
         </p>
         <form>
           <div className="fillout__boxes">
-            <input className="input-field" type="text" placeholder="Name/Organization" />
-            <input className="input-field" type="email" placeholder="Email" />
+            <input onChange={e => setUsername(e.target.value)} className="input-field" type="text" placeholder="Name/Organization" 
+            value={username}/>
+            <input onChange={e => setEmail(e.target.value)} className="input-field" type="email" placeholder="Email"
+            value={email} />
 
             {/* onClick calls togglePasswordVisibility
             true: type text, false: type password
@@ -32,9 +38,11 @@ function Signup({ setActive }) {
 
             <div className="password-container">
               <input
+                onChange={e => setPassword(e.target.value)} 
                 className="input-field"
                 type={passwordVisible ? "text" : "password"}
                 placeholder="Password"
+                value={password}
               />
               <button
                 type="button"
