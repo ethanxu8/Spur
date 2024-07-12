@@ -10,8 +10,9 @@ const App = () => {
       
         <Navbar />
         <Routes>
-          <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          
         </Routes>
     
     </Router>
