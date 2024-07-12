@@ -3,6 +3,8 @@ import spurlogo from "../../assets/Spur_Logo.png";
 import "./signup.css";
 
 function Signup({ setActive }) {
+  /* passwordVisible is a booleon that allows you to set states, initialized as false
+  setPasswordVisible is a function that allows you to change value*/
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -23,6 +25,11 @@ function Signup({ setActive }) {
           <div className="fillout__boxes">
             <input className="input-field" type="text" placeholder="Name/Organization" />
             <input className="input-field" type="email" placeholder="Email" />
+
+            {/* onClick calls togglePasswordVisibility
+            true: type text, false: type password
+            button displayed as Hide or Show */}
+
             <div className="password-container">
               <input
                 className="input-field"
