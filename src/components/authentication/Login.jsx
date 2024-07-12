@@ -9,7 +9,7 @@ function Login({ setActive }) {
     <div className="auth-box">
           <img className="spur-title" src={spurlogo} alt="Spur Logo" />
 
-        <p className="login-text">Don't have account? <a href="#" onClick={() => setActive('...')} className="login-link">Sign Up!</a></p>
+        <p className="login-text">Don't have account? <a href="#" onClick={() => setActive('signup')} className="login-link">Sign Up!</a></p>
         <form>
           <div className="fillout__boxes">
             <input className="input-field" type="email" placeholder="Email" />

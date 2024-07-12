@@ -1,22 +1,10 @@
-/* General CSS Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Auth Container */
-  .auth-container {
+.auth-container {
     display: flex;
-    justify-content: center; 
-    align-items: center;     
-    min-height: calc(100vh - 30px); /* Adjust to ensure full viewport minus navbar height */
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-bottom: 30px; /* Ensure no content overlaps with the navbar */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
   }
   
-  /* Auth Box */
   .auth-box {
     display: flex;
     flex-direction: column;
@@ -28,24 +16,20 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-  /* Spur Title */
   .spur-title {
     width: 150px;
   }
   
-  /* Login Text */
   .login-text {
     font-family: 'Jost', sans-serif;
     margin-bottom: 20px;
   }
   
-  /* Login Link */
   .login-link {
     color: #23A3EB;
     text-decoration: none;
   }
   
-  /* Input Field */
   .input-field {
     width: 100%;
     margin: 10px 0;
@@ -56,7 +40,23 @@
     padding: 10px;
   }
   
-  /* Button Div */
+  .password-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: #23A3EB;
+  }
+  
   .signin__button {
     margin-top: 25px;
     display: flex;
@@ -64,7 +64,6 @@
     align-items: center;
   }
   
-  /* Submit Button */
   .submit-button {
     width: 50%;
     padding: 10px;
@@ -73,42 +72,5 @@
     background-color: #23A3EB;
     color: white;
     cursor: pointer;
-  }
-  
-  /* Bottom Navigation */
-  .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0;
-  }
-  
-  /* Navigation Item */
-  .nav-item {
-    text-align: center;
-    color: #CCCCCC;
-    text-decoration: none;
-    font-size: 12px;
-    font-family: "Jost";
-    font-weight: 400;
-    margin-bottom: 15px;
-    flex: 0;
-  }
-  
-  /* Icon */
-  .icon {
-    font-size: 24px;
-    display: block;
-    margin-bottom: -10px;
-  }
-  
-  /* Navigation Item Hover */
-  .nav-item:hover {
-    color: #23A3EB;
   }
   
