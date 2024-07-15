@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import spurlogo from "../../assets/Spur_Logo.png";
 import "./signup.css";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import {auth} from "../../firebase"
 
 function Signup({ setActive }) {
+
   /* passwordVisible is a booleon that allows you to set states, initialized as false
   setPasswordVisible is a function that allows you to change value*/
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -14,6 +17,15 @@ function Signup({ setActive }) {
   const [username, setUsername] = useState ("");
   const [email, setEmail] = useState ("");
   const [password, setPassword] = useState ("");
+
+  const handleSignup = () => {
+    createUserWithEmailAndPassword(auth, email, password).then(
+      signInWithEmailAndPassword(auth, email, password).then(
+        updateProfile(auth.currentUser, {displayName : username}))
+        ).catch((err) => {
+          alert(err);
+        })
+  };
 
   return (
     <div className="auth-container">
@@ -54,7 +66,7 @@ function Signup({ setActive }) {
             </div>
           </div>
           <div className="signin__button">
-            <button type="submit" className="submit-button">Sign Up!</button>
+            <button onClick={handleSignup} type="submit" className="submit-button">Sign Up!</button>
           </div>
         </form>
       </div>
