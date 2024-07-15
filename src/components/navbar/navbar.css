@@ -38,4 +38,8 @@
   .nav-item:hover {
     color: #23A3EB;
   }
+
+  .nav-item.active {
+    color: #23A3EB;
+  }
   
