@@ -3,9 +3,26 @@ import React from 'react'
 import spurlogo from "../../assets/Spur_Logo.png"
 import "./login.css"
 
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../../firebase"
+
 function Login({ setActive }) {
   const [email, setEmail] = useState ("");
   const [password, setPassword] = useState ("");
+
+  // Updated handleLogin function to prevent default form submission
+  const handleLogin = (event) => {
+    event.preventDefault(); // Prevent the default form submission
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log('Logged in user:', user);
+      })
+      .catch((error) => {
+        console.error('Error logging in:', error);
+      });
+  };
   
   return (
     <div className="auth-container">
@@ -27,7 +44,7 @@ function Login({ setActive }) {
             />
           </div>
           <div className="signin__button">
-          <button type="submit" className="submit-button">Log in!</button>
+          <button onClick = {handleLogin} type="submit" className="submit-button">Log in!</button>
           </div>
         </form>
     </div>
