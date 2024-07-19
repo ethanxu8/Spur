@@ -14,6 +14,8 @@ function Profile() {
   const [bio, setBio] = useState(localStorage.getItem('bio') || 'Your Bio');
   const user = useSelector(state => state.data.user.user);
   const dispatch = useDispatch();
+  const [image, setImage] = useState(null);
+
 
   useEffect(() => {
     // Save name and bio to localStorage whenever they change
@@ -32,6 +34,17 @@ function Profile() {
 
   const handleBioChange = (e) => {
     setBio(e.target.value); // Update bio state with input value
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -64,6 +77,16 @@ function Profile() {
         />
       </div>
 
+      <div className="image-upload-con">
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
+          className="image-input"
+        />
+        {image && <img src={image} alt="Uploaded Preview" className="image-preview" />}
+      </div>
+      
       <NavLink exact to="/profile" className="nav-item" activeClassName="active">
         <i className="icon">
           <FaInstagram />
