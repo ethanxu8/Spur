@@ -1,0 +1,72 @@
+
+.icon {
+    font-size: 24px;
+    display: block;
+    margin: 0%;
+  }
+  
+  .nav-item:hover {
+    color: #080808;
+  }
+
+  .nav-item.active {
+    color: #23A3EB;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #363738; /* Blue background color */
+    color: #fff; /* White text color */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    justify-content: center;
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly increase the size on hover */
+  }
+
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers horizontally */
+    justify-content: center; /* Centers vertically */
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .input-name-con {
+    display: flex;
+    justify-content: center; /* Center the input field horizontally within its container */
+    width: 100%; /* Ensure the container takes full width */
+  }
+  
+  .name-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px; /* Adjust width as needed */
+  }
+
+  .name-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px; /* Adjust width as needed */
+    text-align: center; /* Center text inside the input field */
+  }
+  
