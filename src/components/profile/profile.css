@@ -52,14 +52,6 @@
     justify-content: center; /* Center the input field horizontally within its container */
     width: 100%; /* Ensure the container takes full width */
   }
-  
-  .name-input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 200px; /* Adjust width as needed */
-  }
 
   .name-input {
     padding: 10px;
@@ -70,3 +62,18 @@
     text-align: center; /* Center text inside the input field */
   }
   
+  .input-bio-con {
+    display: flex;
+    justify-content: center; /* Center the input field horizontally within its container */
+    width: 100%; /* Ensure the container takes full width */
+  }
+  
+
+  .bio-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px; /* Adjust width as needed */
+    text-align: center; /* Center text inside the input field */
+  }
