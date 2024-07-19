@@ -101,6 +101,8 @@ function Profile() {
         {image && <img src={image} alt="Uploaded Preview" className="image-preview" />}
       </div>
 
+      <button onClick={handleLogout}>Log out</button>
+
       <NavLink exact to="/profile" className="nav-item" activeClassName="active">
         <i className="icon">
           <FaInstagram />

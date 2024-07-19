@@ -4,6 +4,7 @@ import { Provider, useSelector, useDispatch } from "react-redux"; // Importing P
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Importing routing components from React Router
 import Navbar from './components/navbar/Navbar'; // Importing the Navbar component
 import Profile from './components/profile/Profile'; // Importing the Profile component
+import Upcoming from './components/upcoming/Upcoming'
 import Home from './components/home/Home'; // Importing the Home component
 import { auth } from './firebase'; // Importing Firebase authentication module
 import { loginUser, setLoading } from './features/userSlice'; // Importing actions from our user slice in Redux

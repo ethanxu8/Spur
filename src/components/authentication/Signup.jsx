@@ -2,35 +2,36 @@ import React, { useState } from 'react'; // Importing React and useState hook
 import spurlogo from "../../assets/Spur_Logo.png"; // Importing the logo image
 import "./signup.css"; // Importing CSS for the signup component
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'; // Importing Firebase authentication methods
-import { auth } from "../../firebase"; // Importing the configured Firebase auth instance
+import { auth, db } from "../../firebase"; // Importing the configured Firebase auth and Firestore instance
+import { doc, setDoc } from 'firebase/firestore'; // Importing Firestore methods
 
 function Signup({ setActive }) {
-  /* passwordVisible is a boolean that allows you to set states, initialized as false
-     setPasswordVisible is a function that allows you to change value */
   const [passwordVisible, setPasswordVisible] = useState(false);
-
-  /* Function to toggle the visibility of the password */
-  const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible);
-  };
-
-  /* State variables to hold the username, email, and password */
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  /* Function to handle the signup process */
-  const handleSignup = () => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => 
-        signInWithEmailAndPassword(auth, email, password)
-          .then(() => 
-            updateProfile(auth.currentUser, { displayName: username })
-          )
-      )
-      .catch((err) => {
-        alert(err); // Alerting the user in case of an error
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
+  const handleSignup = async () => {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
+      await updateProfile(auth.currentUser, { displayName: username });
+
+      // Store the user information in Firestore
+      await setDoc(doc(db, 'users', auth.currentUser.uid), {
+        uid: auth.currentUser.uid,
+        email: auth.currentUser.email,
+        displayName: username,
       });
+
+      alert('User created successfully!');
+    } catch (err) {
+      alert(err); // Alerting the user in case of an error
+    }
   };
 
   return (
@@ -59,13 +60,6 @@ function Signup({ setActive }) {
               placeholder="Email" 
               value={email} 
             />
-
-            {/* 
-            onClick calls togglePasswordVisibility
-            true: type text, 
-            false: type password
-            button displayed as Hide or Show 
-            */}
             <div className="password-container">
               <input
                 onChange={e => setPassword(e.target.value)} 

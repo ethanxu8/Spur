@@ -11,19 +11,20 @@
     width: 90%;
     max-width: 400px;
     margin: 0 auto;
-}
+  }
   
-/* Form title */
-.event-create-form h2 {
+  /* Form title */
+  .event-create-form h2 {
     font-family: 'Jost', sans-serif;
-    color: #2E86C1;
+    color: #23A3EB;
     margin-bottom: 20px;
-}
+    
+  }
   
-/* Input fields */
-.event-create-form input,
-.event-create-form textarea,
-.event-create-form button {
+  /* Input fields */
+  .event-create-form input,
+  .event-create-form textarea,
+  .event-create-form button {
     width: 100%;
     margin: 10px 0;
     border: 1px solid #dcdcdc;
@@ -31,30 +32,30 @@
     font-family: 'Jost', sans-serif;
     font-size: 16px;
     padding: 10px;
-}
+  }
   
-/* Textarea for event description */
-.event-create-form textarea {
+  /* Textarea for event description */
+  .event-create-form textarea {
     height: 100px;
-}
+  }
   
-/* Event type and frequency container */
-.event-type, .event-frequency {
+  /* Event type and frequency container */
+  .event-type, .event-frequency {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
+  }
   
-/* Labels for event type and frequency */
-.event-type label, .event-frequency label {
+  /* Labels for event type and frequency */
+  .event-type label, .event-frequency label {
     font-family: 'Jost', sans-serif;
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 10px;
-}
+  }
   
-/* Buttons for event type and frequency */
-.type-button {
+  /* Buttons for event type and frequency */
+  .type-button {
     padding: 10px;
     cursor: pointer;
     border: 1px solid #dcdcdc;
@@ -64,38 +65,38 @@
     text-align: center;
     flex: 1;
     font-family: 'Jost', sans-serif;
-}
+  }
   
-.type-button.active {
+  .type-button.active {
     background-color: #007bff;
     color: white;
     border: 1px solid #007bff;
-}
+  }
   
-.event-type, .event-frequency {
+  .event-type, .event-frequency {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-}
+  }
   
-/* Specific type button colors */
-.type-button.recreation {
+  /* Specific type button colors */
+  .type-button.recreation {
     background-color: #f39c12;
     color: white;
-}
+  }
   
-.type-button.education {
+  .type-button.education {
     background-color: #e74c3c;
     color: white;
-}
+  }
   
-.type-button.social {
+  .type-button.social {
     background-color: #27ae60;
     color: white;
-}
+  }
   
-/* Submit button */
-.event-create-form button {
+  /* Submit button */
+  .event-create-form button {
     background-color: #23A3EB;
     color: white;
     border: none;
@@ -103,16 +104,17 @@
     padding: 10px;
     cursor: pointer;
     font-family: 'Jost', sans-serif;
-}
+  }
   
-.event-create-form button:hover {
+  .event-create-form button:hover {
     background-color: #1B4F72;
-}
+  }
   
-/* Aligning the button container */
-.submit-button-container {
+  /* Aligning the button container */
+  .submit-button-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-}
+  }
+  

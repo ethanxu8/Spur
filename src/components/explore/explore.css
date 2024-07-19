@@ -1,0 +1,58 @@
+.explore-container {
+    padding: 20px;
+  }
+  
+  .explore-container h2 {
+    font-family: 'Jost', sans-serif;
+    color: #2E86C1;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .event-item {
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Jost', sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .event-item:hover {
+    transform: scale(1.02);
+  }
+  
+  .event-item h3 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .event-item p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .event-details p {
+    margin: 0;
+  }
+  
+  .event-details strong {
+    color: #333;
+  }
+  
