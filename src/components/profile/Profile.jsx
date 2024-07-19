@@ -23,7 +23,7 @@ function Profile() {
   return (
     <div>
       {user ?  
-          (<button onClick={handleLogout}>Log out</button>) 
+          (<button onClick={handleLogout}>{user.email}</button>) 
           : 
           (<Authentication/>)}
       
