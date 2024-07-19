@@ -77,3 +77,12 @@
     width: 200px; /* Adjust width as needed */
     text-align: center; /* Center text inside the input field */
   }
+
+  .tag-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px; /* Adjust width as needed */
+    text-align: center; /* Center text inside the input field */
+  }

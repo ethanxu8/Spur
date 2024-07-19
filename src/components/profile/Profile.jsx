@@ -9,19 +9,20 @@ import './profile.css';
 import Authentication from '../authentication/Authentication';
 
 function Profile() {
-  // Load name and bio from localStorage or use default values
+  // Load name, bio, and tagline from localStorage or use default values
   const [name, setName] = useState(localStorage.getItem('name') || 'Your Name');
   const [bio, setBio] = useState(localStorage.getItem('bio') || 'Your Bio');
+  const [tagline, setTagline] = useState(localStorage.getItem('tagline') || 'Your Tagline');
   const user = useSelector(state => state.data.user.user);
   const dispatch = useDispatch();
   const [image, setImage] = useState(null);
 
-
   useEffect(() => {
-    // Save name and bio to localStorage whenever they change
+    // Save name, bio, and tagline to localStorage whenever they change
     localStorage.setItem('name', name);
     localStorage.setItem('bio', bio);
-  }, [name, bio]);
+    localStorage.setItem('tagline', tagline);
+  }, [name, bio, tagline]);
 
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -34,6 +35,10 @@ function Profile() {
 
   const handleBioChange = (e) => {
     setBio(e.target.value); // Update bio state with input value
+  };
+
+  const handleTaglineChange = (e) => {
+    setTagline(e.target.value); // Update tagline state with input value
   };
 
   const handleImageChange = (e) => {
@@ -77,6 +82,16 @@ function Profile() {
         />
       </div>
 
+      <div className="input-tagline-con">
+        <input
+          id="tagline-input"
+          value={tagline}
+          onChange={handleTaglineChange}
+          className="tagline-input"
+          placeholder="Write your tagline here..."
+        />
+      </div>
+
       <div className="image-upload-con">
         <input
           type="file"
@@ -86,7 +101,7 @@ function Profile() {
         />
         {image && <img src={image} alt="Uploaded Preview" className="image-preview" />}
       </div>
-      
+
       <NavLink exact to="/profile" className="nav-item" activeClassName="active">
         <i className="icon">
           <FaInstagram />
