@@ -11,14 +11,13 @@
     width: 90%;
     max-width: 400px;
     margin: 0 auto;
+    font-family: 'Jost', sans-serif; /* Ensure the font is consistent */
   }
   
   /* Form title */
   .event-create-form h2 {
-    font-family: 'Jost', sans-serif;
-    color: #23A3EB;
+    color: #2E86C1;
     margin-bottom: 20px;
-    
   }
   
   /* Input fields */
@@ -29,7 +28,6 @@
     margin: 10px 0;
     border: 1px solid #dcdcdc;
     border-radius: 5px;
-    font-family: 'Jost', sans-serif;
     font-size: 16px;
     padding: 10px;
   }
@@ -48,50 +46,39 @@
   
   /* Labels for event type and frequency */
   .event-type label, .event-frequency label {
-    font-family: 'Jost', sans-serif;
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 10px;
   }
   
   /* Buttons for event type and frequency */
+  .type-buttons, .frequency-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
   .type-button {
     padding: 10px;
     cursor: pointer;
     border: 1px solid #dcdcdc;
     border-radius: 5px;
-    margin-right: 10px;
     margin-bottom: 10px;
     text-align: center;
     flex: 1;
-    font-family: 'Jost', sans-serif;
+    margin-right: 5px;
+    font-size: 14px;
   }
   
   .type-button.active {
-    background-color: #007bff;
+    border: none;
     color: white;
-    border: 1px solid #007bff;
   }
   
-  .event-type, .event-frequency {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
+
   /* Specific type button colors */
-  .type-button.recreation {
-    background-color: #f39c12;
-    color: white;
-  }
-  
-  .type-button.education {
-    background-color: #e74c3c;
-    color: white;
-  }
-  
-  .type-button.social {
-    background-color: #27ae60;
+  .type-button.recreation.active, 
+  .type-button.education.active, 
+  .type-button.social.active {
     color: white;
   }
   
@@ -103,18 +90,9 @@
     border-radius: 50px;
     padding: 10px;
     cursor: pointer;
-    font-family: 'Jost', sans-serif;
   }
   
   .event-create-form button:hover {
     background-color: #1B4F72;
-  }
-  
-  /* Aligning the button container */
-  .submit-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
   }
   

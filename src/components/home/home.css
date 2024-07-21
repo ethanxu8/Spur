@@ -1,3 +1,12 @@
+
+  .content {
+    overflow-y: auto;
+    padding-bottom: 70px; /* Add padding to the bottom to avoid content overlapping with the nav */
+  }
+  
+  
+
+
 .home-container {
     padding: 20px;
   }

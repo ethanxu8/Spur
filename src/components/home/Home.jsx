@@ -15,18 +15,13 @@ const Home = () => {
   const [showEventCreate, setShowEventCreate] = useState(false); // State to manage visibility
   const [showSearchBar, setShowSearchBar] = useState(false); // State to manage search bar visibility
 
-  const handleLogout = () => {
-    dispatch(logoutUser());
-    signOut(auth);
-  };
-
   const toggleEventCreate = () => {
     setShowEventCreate(!showEventCreate);
   };
 
-  const toggleSearchBar = () => {
-    setShowSearchBar(!showSearchBar);
-  };
+  if (!user) {
+    return <Authentication />; // Render Authentication if user is not logged in
+  }
 
   return (
     <div className="home-container">
@@ -42,11 +37,7 @@ const Home = () => {
           <img src={spurcreate} alt={showEventCreate ? "Close" : "Create Event"} />
         </button>
       </div>
-      {showEventCreate && (
-        user ? <EventCreate user={user} /> : <Authentication />
-      )}
-      <Explore />
-      <button onClick={handleLogout}>Log out</button>
+      {showEventCreate ? <EventCreate user={user} /> : <Explore user={user} />}
     </div>
   );
 };

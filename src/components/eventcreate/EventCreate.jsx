@@ -96,4 +96,5 @@ const EventCreate = ({ user }) => { // Accept user as a prop
   );
 };
 
+
 export default EventCreate;
