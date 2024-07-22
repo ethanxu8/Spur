@@ -13,10 +13,16 @@ const Home = () => {
   const user = useSelector(state => state.data.user.user);
   const dispatch = useDispatch();
   const [showEventCreate, setShowEventCreate] = useState(false); // State to manage visibility
-  const [showSearchBar, setShowSearchBar] = useState(false); // State to manage search bar visibility
+  const [showExplore, setShowExplore] = useState(true); // State to manage explore page visibility
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    signOut(auth);
+  };
 
   const toggleEventCreate = () => {
     setShowEventCreate(!showEventCreate);
+    setShowExplore(!showExplore);
   };
 
   if (!user) {
@@ -30,14 +36,15 @@ const Home = () => {
           type="text"
           className="search-bar"
           placeholder="Find an Event!"
-          onFocus={() => setShowSearchBar(true)}
-          onBlur={() => setShowSearchBar(false)}
         />
         <button className="create-event-button" onClick={toggleEventCreate}>
           <img src={spurcreate} alt={showEventCreate ? "Close" : "Create Event"} />
         </button>
       </div>
-      {showEventCreate ? <EventCreate user={user} /> : <Explore user={user} />}
+      <div className="content-container">
+        {showEventCreate && <EventCreate user={user} />}
+        {showExplore && <Explore user={user} />}
+      </div>
     </div>
   );
 };

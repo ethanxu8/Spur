@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; // Importing React and useState hook
-import spurlogo from "../../assets/Spur_Logo.png"; // Importing the logo image
+import spurlogo from "../../assets/Spur_Logo.png";
 import "./signup.css"; // Importing CSS for the signup component
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'; // Importing Firebase authentication methods
 import { auth, db } from "../../firebase"; // Importing the configured Firebase auth and Firestore instance
@@ -25,7 +25,7 @@ function Signup({ setActive }) {
       await setDoc(doc(db, 'users', auth.currentUser.uid), {
         uid: auth.currentUser.uid,
         email: auth.currentUser.email,
-        displayName: username,
+        displayName: username, // Corrected to use the local username state
       });
 
       alert('User created successfully!');

@@ -3,14 +3,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #dcdcdc;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 400px;
-    margin: 0 auto;
+
+    padding-top: 20px;
+
     font-family: 'Jost', sans-serif; /* Ensure the font is consistent */
   }
   
@@ -74,12 +69,22 @@
     color: white;
   }
   
-
   /* Specific type button colors */
   .type-button.recreation.active, 
   .type-button.education.active, 
   .type-button.social.active {
     color: white;
+  }
+
+  /* Container for the time fields */
+  .time-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .time-container input {
+    width: 48%; /* Adjust width to fit both fields side by side */
   }
   
   /* Submit button */
@@ -95,4 +100,24 @@
   .event-create-form button:hover {
     background-color: #1B4F72;
   }
-  
+
+  /* Photo upload section */
+  .photo-upload {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .photo-upload label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .photo-upload input {
+    padding: 5px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    font-size: 16px
+  }

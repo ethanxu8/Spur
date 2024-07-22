@@ -1,5 +1,8 @@
 .explore-container {
-    padding: 20px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .explore-container h2 {
@@ -13,6 +16,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
   }
   
   .event-item {
@@ -22,24 +26,34 @@
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-family: 'Jost', sans-serif;
-    max-width: 600px;
-    margin: 0 auto;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%; /* Make the item take full width */
   }
   
   .event-item:hover {
     transform: scale(1.02);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   }
   
   .event-item h3 {
     margin-top: 0;
-    color: #333;
+    color: #2E86C1;
+    font-size: 1.5rem;
   }
   
   .event-item p {
     margin: 5px 0;
     color: #555;
+  }
+  
+  .event-thumbnail {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Limit the height of the image */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
   }
   
   .event-details {

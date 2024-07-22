@@ -29,11 +29,13 @@ const Explore = ({ user }) => { // Add user as a prop
       <div className="events-list">
         {events.map(event => (
           <div key={event.id} className="event-item" onClick={() => setSelectedEvent(event)}>
+            {event.photo && <img src={event.photo} alt="Event" className="event-thumbnail" />}
             <h3>{event.title}</h3>
             <p>{event.description}</p>
             <div className="event-details">
               <p><strong>Type:</strong> {event.type}</p>
-              <p><strong>Date:</strong> {new Date(event.date).toLocaleString()}</p>
+              <p><strong>Date:</strong> {new Date(event.date).toLocaleDateString()}</p>
+              <p><strong>Time:</strong> {event.startTime} - {event.endTime}</p>
               <p><strong>Location:</strong> {event.location}</p>
             </div>
           </div>
