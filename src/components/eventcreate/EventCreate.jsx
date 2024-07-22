@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { collection, addDoc, doc, getDoc } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db } from '../../firebase'; // Import Firestore
 import './eventcreate.css'; 
 
@@ -15,12 +16,16 @@ const EventCreate = ({ user }) => { // Accept user as a prop
   const [instructions, setInstructions] = useState('');
   const [username, setUsername] = useState('');
   const [photo, setPhoto] = useState(null);
+  const [loading, setLoading] = useState(false); // Add loading state
+  const fileInputRef = useRef(null); // Add a ref to the file input element
 
   useEffect(() => {
     const fetchUsername = async () => {
       const userDoc = await getDoc(doc(db, 'users', user.uid));
       if (userDoc.exists()) {
         setUsername(userDoc.data().displayName);
+      } else {
+        console.error('User document does not exist');
       }
     };
     fetchUsername();
@@ -34,7 +39,18 @@ const EventCreate = ({ user }) => { // Accept user as a prop
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
+    setLoading(true);
     try {
+      let uploadedPhotoURL = null;
+
+      if (photo) {
+        const storage = getStorage();
+        const photoRef = ref(storage, `events/${photo.name}`);
+        await uploadBytes(photoRef, photo);
+        uploadedPhotoURL = await getDownloadURL(photoRef);
+        console.log('Photo uploaded successfully:', uploadedPhotoURL); // Log photo URL
+      }
+
       const eventData = {
         title,
         description,
@@ -48,14 +64,14 @@ const EventCreate = ({ user }) => { // Accept user as a prop
         userId: user.uid, // Include user ID
         userEmail: user.email, // Include user email 
         username: username, // Include user display name
-        photo: photo ? URL.createObjectURL(photo) : null // Include photo if available
+        photo: uploadedPhotoURL // Include photo URL if available
       };
       console.log('Event data to be submitted:', eventData); // Log event data
 
       // Add a new document to the 'events' collection with the form data
       const docRef = await addDoc(collection(db, 'events'), eventData);
-
       console.log('Event created with ID: ', docRef.id);
+
       // Reset form fields after submission
       setTitle('');
       setDescription('');
@@ -67,8 +83,13 @@ const EventCreate = ({ user }) => { // Accept user as a prop
       setEndTime('');
       setInstructions('');
       setPhoto(null);
+      fileInputRef.current.value = ''; // Reset file input field
+      alert('Event created successfully!');
     } catch (e) {
       console.error('Error adding document: ', e);
+      alert('Error creating event: ' + e.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -110,13 +131,13 @@ const EventCreate = ({ user }) => { // Accept user as a prop
         placeholder="Event Location"
         required
       />
-      <input
-        type="date"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-        required
-      />
-      <div className="time-container">
+      <div className="datetime-container">
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          required
+        />
         <input
           type="time"
           value={startTime}
@@ -144,9 +165,12 @@ const EventCreate = ({ user }) => { // Accept user as a prop
           type="file"
           onChange={handlePhotoChange}
           accept="image/*"
+          ref={fileInputRef} // Add ref to the file input
         />
       </div>
-      <button type="submit">Share Your Event!</button>
+      <button type="submit" disabled={loading}>
+        {loading ? 'Sharing...' : 'Share Your Event!'}
+      </button>
     </form>
   );
 };

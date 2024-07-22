@@ -3,121 +3,125 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     padding-top: 20px;
-
     font-family: 'Jost', sans-serif; /* Ensure the font is consistent */
-  }
+}
   
-  /* Form title */
-  .event-create-form h2 {
+/* Form title */
+.event-create-form h2 {
     color: #2E86C1;
     margin-bottom: 20px;
-  }
+}
   
-  /* Input fields */
-  .event-create-form input,
-  .event-create-form textarea,
-  .event-create-form button {
+/* Input fields */
+.event-create-form input,
+.event-create-form textarea,
+.event-create-form button {
     width: 100%;
-    margin: 10px 0;
+    margin: 5px 0; /* Reduced margin */
     border: 1px solid #dcdcdc;
     border-radius: 5px;
     font-size: 16px;
     padding: 10px;
-  }
+}
   
-  /* Textarea for event description */
-  .event-create-form textarea {
+/* Textarea for event description */
+.event-create-form textarea {
     height: 100px;
-  }
+}
   
-  /* Event type and frequency container */
-  .event-type, .event-frequency {
+/* Event type and frequency container */
+.event-type, .event-frequency {
     display: flex;
     flex-direction: column;
     width: 100%;
-  }
+    background: white;
+}
   
-  /* Labels for event type and frequency */
-  .event-type label, .event-frequency label {
+/* Labels for event type and frequency */
+.event-type label, .event-frequency label {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 10px;
-  }
+    margin-bottom: 5px; /* Reduced margin */
+}
   
-  /* Buttons for event type and frequency */
-  .type-buttons, .frequency-buttons {
+/* Buttons for event type and frequency */
+.type-buttons, .frequency-buttons {
     display: flex;
     justify-content: space-between;
-  }
+}
   
-  .type-button {
+.type-button {
     padding: 10px;
     cursor: pointer;
     border: 1px solid #dcdcdc;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Reduced margin */
     text-align: center;
     flex: 1;
     margin-right: 5px;
     font-size: 14px;
-  }
+}
   
-  .type-button.active {
+.type-button.active {
     border: none;
     color: white;
-  }
+}
   
-  /* Specific type button colors */
-  .type-button.recreation.active, 
-  .type-button.education.active, 
-  .type-button.social.active {
+/* Specific type button colors */
+.type-button.recreation.active, 
+.type-button.education.active, 
+.type-button.social.active {
     color: white;
-  }
-
-  /* Container for the time fields */
-  .time-container {
+}
+  
+/* Container for the date and time fields */
+.datetime-container {
     display: flex;
     justify-content: space-between;
     width: 100%;
-  }
-
-  .time-container input {
-    width: 48%; /* Adjust width to fit both fields side by side */
-  }
+    gap: 5px; /* Add gap between inputs */
+}
   
-  /* Submit button */
-  .event-create-form button {
+.datetime-container input[type="date"] {
+    flex: 2; /* Make date input take more space */
+}
+  
+.datetime-container input[type="time"] {
+    flex: 1; /* Make time inputs take less space */
+}
+  
+/* Submit button */
+.event-create-form button {
     background-color: #23A3EB;
     color: white;
     border: none;
     border-radius: 50px;
     padding: 10px;
     cursor: pointer;
-  }
+}
   
-  .event-create-form button:hover {
+.event-create-form button:hover {
     background-color: #1B4F72;
-  }
-
-  /* Photo upload section */
-  .photo-upload {
+}
+  
+/* Photo upload section */
+.photo-upload {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-top: 10px;
-  }
-
-  .photo-upload label {
+}
+  
+.photo-upload label {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  .photo-upload input {
+    margin-bottom: 5px; /* Reduced margin */
+}
+  
+.photo-upload input {
     padding: 5px;
     border: 1px solid #dcdcdc;
     border-radius: 5px;
-    font-size: 16px
-  }
+    font-size: 16px;
+}
